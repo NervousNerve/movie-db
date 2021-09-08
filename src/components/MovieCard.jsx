@@ -1,20 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import { smallImgUrl } from "../services/tmdb";
 
 import style from "./css/MovieCard.module.css";
-
-const imgUrl = "https://image.tmdb.org/t/p/w200";
 
 const MovieCard = ({ movie }) => {
   return (
     <div className={style.movieCard}>
-      <img src={imgUrl + movie.poster_path} className="rounded" />
+      <Link to={"/movies/" + movie.id}>
+        <img src={smallImgUrl + movie.poster_path} className="rounded" />
+      </Link>
 
       <div className={style.info}>
         <div className={style.rating}>
-          <span className="color-white text-bold">{movie.vote_average}</span>
+          <span className="color-white text-bold">
+            {Math.round(movie.vote_average * 10)}
+          </span>
         </div>
 
-        <p className="color-white m-0">{movie.title}</p>
+        <Link to={"/movies/" + movie.id} className="color-white m-0">
+          {movie.title}
+        </Link>
         <p className="color-dark font-size-sm m-0">{movie.release_date}</p>
       </div>
     </div>

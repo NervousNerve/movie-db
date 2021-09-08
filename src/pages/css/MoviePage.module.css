@@ -1,0 +1,38 @@
+.moviePage main {
+  position: relative;
+  top: -13rem;
+}
+
+.castCard {
+  width: 380px;
+}
+
+.profile {
+  width: 5rem;
+  aspect-ratio: 1;
+  border-radius: 100vh;
+  background: var(--bg-dark);
+  overflow: hidden;
+}
+
+.profile img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.backdrop {
+  width: 100%;
+  height: 50vh;
+  position: relative;
+}
+.backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, #0004, #000);
+}
+.backdrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

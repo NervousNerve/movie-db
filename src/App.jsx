@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 import Navbar from "./components/Navbar";
 import NowPlayingPage from "./pages/NowPlayingPage";
+import MoviePage from "./pages/MoviePage";
 
 const queryClient = new QueryClient();
 
@@ -15,6 +16,7 @@ function App() {
           <Navbar />
           <Switch>
             <Route path="/now-playing" component={NowPlayingPage} />
+            <Route path="/movies/:id" component={MoviePage} />
           </Switch>
         </BrowserRouter>
       </QueryClientProvider>
