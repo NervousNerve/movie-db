@@ -15,7 +15,7 @@ const NowPlayingPage = () => {
 
   return (
     <div>
-      <h2 className="color-white">Now Playing</h2>
+      <h2 className="color-white text-center">Now Playing</h2>
 
       {data && (
         <>

@@ -93,6 +93,8 @@ label {
 
 .flex { display: flex; }
 .flex-grow { flex-grow: 1; }
+.flex-wrap { flex-wrap: wrap }
+.flex-nowrap { flex-wrap: nowrap; }
 
 .gap-025 { gap: var(--gap-quart); }
 .gap-05 { gap: var(--gap-half); }
