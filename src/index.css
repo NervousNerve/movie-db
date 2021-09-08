@@ -64,13 +64,20 @@ label {
   margin-bottom: var(--gap-quart);
 }
 
-.btn-square {
+.square {
   border-radius: 0;
 }
-.btn-round {
+.rounded {
+  border-radius: .25em;
+}
+.round {
   border-radius: 100vh;
 }
-  
+
+.border-none {
+  border-style: none;
+}
+
 .container {
   max-width: 1000px;
   margin-left: auto;
