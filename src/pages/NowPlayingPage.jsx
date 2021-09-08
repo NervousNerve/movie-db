@@ -22,8 +22,8 @@ const NowPlayingPage = () => {
           <MovieList movies={data.results} />
 
           <PageSelector
-            current={page}
-            max={data.total_pages}
+            currentPage={page}
+            totalPages={data.total_pages}
             onChange={(val) => setPage(val)}
           />
         </>
