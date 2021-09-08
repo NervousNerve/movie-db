@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { getNowPlaying } from "../services/tmdb";
 
-const NowPlaying = () => {
+const NowPlayingPage = () => {
   const [movies, setMovies] = useState();
 
   useEffect(() => {
@@ -21,4 +21,4 @@ const NowPlaying = () => {
   );
 };
 
-export default NowPlaying;
+export default NowPlayingPage;
