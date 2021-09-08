@@ -1,0 +1,21 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: var(--bar-height);
+  z-index: 1;
+  padding: 0 var(--gap);
+  box-sizing: border-box;
+
+  color: white;
+  background: var(--color-accent);
+  box-shadow: 0 4px 4px 0 #0008;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spacer {
+  height: var(--bar-height);
+}
