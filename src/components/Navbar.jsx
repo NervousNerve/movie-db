@@ -8,8 +8,8 @@ const Navbar = () => {
 
       <ul className="list-style-none my-0 pl-0 flex gap-2">
         <li>
-          <NavLink to="/playing" className="color-white">
-            Playing Now
+          <NavLink to="/now-playing" className="color-white">
+            Now Playing
           </NavLink>
         </li>
         <li>
