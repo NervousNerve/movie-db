@@ -16,8 +16,8 @@ const get = async (endpoint, params) => {
   return await response.json();
 };
 
-export const getNowPlaying = async () => {
-  const response = await get("/movie/now_playing");
+export const getNowPlaying = async (page) => {
+  const response = await get("/movie/now_playing", { page });
   return response.results;
 };
 

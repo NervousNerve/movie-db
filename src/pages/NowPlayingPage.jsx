@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useQuery } from "react-query";
 
 import { getNowPlaying } from "../services/tmdb";
 
 const NowPlayingPage = () => {
-  const [movies, setMovies] = useState();
-
-  useEffect(() => {
-    getNowPlaying().then((res) => setMovies(res));
-  }, []);
+  const [page, setPage] = useState(1);
+  const moviesQuery = useQuery(["movies", page], () => getNowPlaying(page));
 
   return (
     <div>
-      {movies &&
-        movies.map((movie, i) => (
+      {moviesQuery.data &&
+        moviesQuery.data.map((movie, i) => (
           <p key={i} className="color-white">
             {movie.original_title}
           </p>
