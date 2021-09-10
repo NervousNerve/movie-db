@@ -7,6 +7,7 @@ import { smallImgUrl, hugeImgUrl, getMovieById } from "../services/tmdb";
 import MovieList from "../components/MovieList";
 
 import style from "./css/MoviePage.module.css";
+import ActorCard from "../components/ActorCard";
 
 const MoviePage = () => {
   const { id } = useParams();
@@ -39,25 +40,16 @@ const MoviePage = () => {
 
         <p>{data.overview}</p>
 
-        <h3>Top Cast</h3>
-        <ol className="list-style-none pl-0 flex flex-wrap gap-1">
-          {data.credits.cast.slice(0, 5).map((person, i) => (
-            <li key={i} className={`${style.castCard} flex gap-1`}>
-              <div className={style.profile}>
-                {person.profile_path && (
-                  <img src={smallImgUrl + person.profile_path} />
-                )}
-              </div>
-
-              <div>
-                <p className="m-0">{person.character}</p>
-                <p className="m-0 font-size-sm color-dark">{person.name}</p>
-              </div>
+        <h3 className="text-center">Top Cast</h3>
+        <ol className={style.actorList}>
+          {data.credits.cast.slice(0, 9).map((actor, i) => (
+            <li key={i}>
+              <ActorCard actor={actor} />
             </li>
           ))}
         </ol>
 
-        <h3>Recommended</h3>
+        <h3 className="text-center">Recommended</h3>
         <MovieList movies={data.recommendations.results.slice(0, 5)} />
       </main>
     </div>

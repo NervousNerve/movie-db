@@ -1,0 +1,20 @@
+.info {
+  width: 10em;
+}
+
+.picture {
+  width: 5rem;
+  aspect-ratio: 1;
+  border-radius: 100vh;
+  background: var(--bg-dark);
+  overflow: hidden;
+}
+
+.picture img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.picture:hover {
+  box-shadow: 0 0 2px 4px #fffc;
+}
