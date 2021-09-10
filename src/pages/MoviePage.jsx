@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router";
 import { useQuery } from "react-query";
 
-import { smallImgUrl, hugeImgUrl, getMovieById } from "../services/tmdb";
+import { imgUrl, getMovieById } from "../services/tmdb";
 
 import MovieList from "../components/MovieList";
 
@@ -18,12 +18,12 @@ const MoviePage = () => {
   return (
     <div className={`${style.moviePage} color-white`}>
       <header className={style.backdrop}>
-        <img src={hugeImgUrl + data.backdrop_path} />
+        <img src={imgUrl.large + data.backdrop_path} />
       </header>
 
       <main className="container">
         <div className="container flex gap-1 align-end">
-          <img src={smallImgUrl + data.poster_path} />
+          <img src={imgUrl.small + data.poster_path} />
 
           <div className="">
             <h2 className="font-size-xxl mb-1">{data.title}</h2>

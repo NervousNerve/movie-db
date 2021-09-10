@@ -1,10 +1,11 @@
 const baseUrl = "https://api.themoviedb.org/3";
 const apiKey = "5eed0df086924f06e5e1149ebdd2ae4c";
 
-export const smallImgUrl = "https://image.tmdb.org/t/p/w185";
-export const largeImgUrl = "https://image.tmdb.org/t/p/w500";
-export const hugeImgUrl = "https://image.tmdb.org/t/p/w1280";
-// export const backdropUrl = "https://image.tmdb.org/t/p/w1280";
+export const imgUrl = {
+  small: "https://image.tmdb.org/t/p/w185",
+  medium: "https://image.tmdb.org/t/p/w500",
+  large: "https://image.tmdb.org/t/p/w1280",
+};
 
 const get = async (endpoint, params) => {
   params = { ...params, api_key: apiKey };
@@ -32,8 +33,7 @@ export const getMovieById = async (id) => {
 };
 
 export default {
-  smallPoster: smallImgUrl,
-  largePoster: largeImgUrl,
+  imgUrl,
   getNowPlaying,
   getMovieById,
 };

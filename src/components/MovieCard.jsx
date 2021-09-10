@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { smallImgUrl } from "../services/tmdb";
+import { imgUrl } from "../services/tmdb";
 
 import style from "./css/MovieCard.module.css";
 
@@ -9,7 +9,7 @@ const MovieCard = ({ movie }) => {
   return (
     <div className={style.movieCard}>
       <Link to={"/movies/" + movie.id}>
-        <img src={smallImgUrl + movie.poster_path} className="rounded" />
+        <img src={imgUrl.small + movie.poster_path} className="rounded" />
       </Link>
 
       <div>
