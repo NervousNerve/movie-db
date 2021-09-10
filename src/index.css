@@ -79,7 +79,9 @@ label {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1000px;
+  padding-left: var(--gap);
+  padding-right: var(--gap);
   margin-left: auto;
   margin-right: auto;
 }
@@ -204,15 +206,4 @@ label {
 
 .hide {
   display: none;
-}
-
-/* Laptops */
-@media screen and (min-width: 900px) {
-  :root {
-    --gap: 16px;
-  }
-
-  html {
-    font-size: 1.25rem;
-  }
 }
