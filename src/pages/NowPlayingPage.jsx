@@ -18,7 +18,7 @@ const NowPlayingPage = () => {
       <h2 className="color-white text-center">Now Playing</h2>
 
       {data && (
-        <>
+        <div className="container">
           <MovieList movies={data.results} />
 
           <PageSelector
@@ -26,7 +26,7 @@ const NowPlayingPage = () => {
             totalPages={data.total_pages}
             onChange={(val) => setPage(val)}
           />
-        </>
+        </div>
       )}
     </div>
   );
