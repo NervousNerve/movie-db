@@ -26,6 +26,14 @@ export const getNowPlaying = async (page) => {
   return await get("/movie/now_playing", { page });
 };
 
+export const getPopular = async (page) => {
+  return await get("/movie/popular", { page });
+};
+
+export const getTopRated = async (page) => {
+  return await get("/movie/top_rated", { page });
+};
+
 export const getMovieById = async (id) => {
   return await get("/movie/" + id, {
     append_to_response: "credits,recommendations",
@@ -35,5 +43,7 @@ export const getMovieById = async (id) => {
 export default {
   imgUrl,
   getNowPlaying,
+  getPopular,
+  getTopRated,
   getMovieById,
 };

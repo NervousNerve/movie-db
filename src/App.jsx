@@ -3,8 +3,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import Navbar from "./components/Navbar";
-import NowPlayingPage from "./pages/NowPlayingPage";
 import MoviePage from "./pages/MoviePage";
+import MoviesPage from "./pages/MoviesPage";
 
 const queryClient = new QueryClient();
 
@@ -15,8 +15,16 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <Switch>
-            <Route path="/now-playing" component={NowPlayingPage} />
-            <Route path="/movies/:id" component={MoviePage} />
+            <Route path="/movies/now-playing">
+              <MoviesPage category="now-playing" />
+            </Route>
+            <Route path="/movies/popular">
+              <MoviesPage category="popular" />
+            </Route>
+            <Route path="/movies/top-rated">
+              <MoviesPage category="top-rated" />
+            </Route>
+            <Route path="/movie/:id" component={MoviePage} />
           </Switch>
         </BrowserRouter>
       </QueryClientProvider>

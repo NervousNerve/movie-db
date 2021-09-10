@@ -11,17 +11,17 @@ const Navbar = () => {
 
         <ul className="list-style-none my-0 pl-0 flex gap-2">
           <li>
-            <NavLink to="/now-playing" className="color-white">
+            <NavLink to="/movies/now-playing" className="color-white">
               Now Playing
             </NavLink>
           </li>
           <li>
-            <NavLink to="/popular" className="color-white">
+            <NavLink to="/movies/popular" className="color-white">
               Popular
             </NavLink>
           </li>
           <li>
-            <NavLink to="/top-rated" className="color-white">
+            <NavLink to="/movies/top-rated" className="color-white">
               Top Rated
             </NavLink>
           </li>
