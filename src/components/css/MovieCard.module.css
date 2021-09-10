@@ -9,22 +9,3 @@
 .movieCard img:hover {
   box-shadow: 0 0 2px 4px #fffc;
 }
-
-.info {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-top: -2.5rem;
-  position: relative;
-}
-
-.rating {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 100vh;
-  height: 3em;
-  aspect-ratio: 1;
-  background: var(--color-dark);
-  margin-left: auto;
-  box-shadow: 0 0 1rem black;
-}

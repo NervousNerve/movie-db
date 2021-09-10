@@ -12,13 +12,7 @@ const MovieCard = ({ movie }) => {
         <img src={smallImgUrl + movie.poster_path} className="rounded" />
       </Link>
 
-      <div className={style.info}>
-        <div className={style.rating}>
-          <span className="color-white text-bold">
-            {Math.round(movie.vote_average * 10)}
-          </span>
-        </div>
-
+      <div>
         <Link to={"/movies/" + movie.id} className="color-white m-0">
           {movie.title}
         </Link>
