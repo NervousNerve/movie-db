@@ -1,6 +1,13 @@
 .moviePage main {
+  max-width: 800px;
+  padding-left: var(--gap);
+  padding-right: var(--gap);
+  padding-bottom: var(--gap);
+  margin-left: auto;
+  margin-right: auto;
+
   position: relative;
-  top: -13rem;
+  top: calc(-33vh + var(--gap));
 }
 
 .backdrop {
@@ -28,10 +35,19 @@
   padding-left: 0;
   width: max-content;
   margin: 0 auto;
-  /* list-style-none pl-0 flex flex-wrap justify-center gap-1 */
 }
 
 @media screen and (min-width: 520px) {
+  .moviePage main {
+    top: -13rem;
+  }
+
+  .topSection {
+    display: flex;
+    align-items: end;
+    gap: var(--gap);
+  }
+
   .actorList {
     display: grid;
     grid-template-columns: 1fr 1fr;

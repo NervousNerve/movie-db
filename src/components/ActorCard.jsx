@@ -16,7 +16,7 @@ const ActorCard = ({ actor }) => {
         <Link to={"/actors/" + actor.id} className="m-0 color-white">
           {actor.name}
         </Link>
-        <p className="m-0 font-size-sm color-dark">{actor.character}</p>
+        <p className="m-0 color-dark">{actor.character}</p>
       </div>
     </div>
   );

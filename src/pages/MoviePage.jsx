@@ -5,9 +5,9 @@ import { useQuery } from "react-query";
 import { imgUrl, getMovieById } from "../services/tmdb";
 
 import MovieList from "../components/MovieList";
+import ActorCard from "../components/ActorCard";
 
 import style from "./css/MoviePage.module.css";
-import ActorCard from "../components/ActorCard";
 
 const MoviePage = () => {
   const { id } = useParams();
@@ -17,20 +17,20 @@ const MoviePage = () => {
 
   return (
     <div className={`${style.moviePage} color-white`}>
-      <header className={style.backdrop}>
+      <div className={style.backdrop}>
         <img src={imgUrl.large + data.backdrop_path} />
-      </header>
+      </div>
 
-      <main className="container">
-        <div className="container flex gap-1 align-end">
+      <main>
+        <div className={style.topSection}>
           <img src={imgUrl.small + data.poster_path} />
 
-          <div className="">
+          <div>
             <h2 className="font-size-xxl mb-1">{data.title}</h2>
 
-            <div className="flex gap-05">
+            <div className="flex flex-wrap gap-05">
               {data.genres.map((genre, i) => (
-                <span key={i} className="round bg-dark px-1 font-size-sm">
+                <span key={i} className="round bg-dark px-1 py-05">
                   {genre.name}
                 </span>
               ))}
@@ -50,7 +50,7 @@ const MoviePage = () => {
         </ol>
 
         <h3 className="text-center">Recommended</h3>
-        <MovieList movies={data.recommendations.results.slice(0, 5)} />
+        <MovieList movies={data.recommendations.results.slice(0, 8)} />
       </main>
     </div>
   );
