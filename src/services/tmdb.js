@@ -40,10 +40,11 @@ export const getMovieById = async (id) => {
   });
 };
 
-export default {
-  imgUrl,
-  getNowPlaying,
-  getPopular,
-  getTopRated,
-  getMovieById,
+export const getGenres = async () => {
+  const response = await get("/genre/movie/list");
+  return response.genres;
+};
+
+export const getMoviesByGenres = async (page, genres = "") => {
+  return await get("/discover/movie", { page, with_genres: genres });
 };

@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import Navbar from "./components/Navbar";
 import MoviePage from "./pages/MoviePage";
 import MoviesPage from "./pages/MoviesPage";
+import GenresPage from "./pages/GenresPage";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,9 @@ function App() {
             </Route>
             <Route path="/movies/top-rated">
               <MoviesPage category="top-rated" />
+            </Route>
+            <Route path="/genres">
+              <GenresPage />
             </Route>
             <Route path="/movie/:id" component={MoviePage} />
             <Route exact path="/">
