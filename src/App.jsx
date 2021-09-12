@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 import Navbar from "./components/Navbar";
 import MoviePage from "./pages/MoviePage";
@@ -34,6 +35,7 @@ function App() {
             </Route>
           </Switch>
         </BrowserRouter>
+        <ReactQueryDevtools />
       </QueryClientProvider>
     </div>
   );
