@@ -6,6 +6,8 @@ import PageSelector from "../components/PageSelector";
 
 import useCategory from "../hooks/useCategory";
 
+import style from "./css/moviesPage.module.css";
+
 const MoviesPage = ({ category }) => {
   const movieCategory = useCategory(category);
   const [page, setPage] = useState(1);
@@ -20,11 +22,11 @@ const MoviesPage = ({ category }) => {
   );
 
   return (
-    <div>
+    <div className={style.moviesPage}>
       <h2 className="color-white text-center">{movieCategory.title}</h2>
 
       {data && (
-        <div className="container">
+        <div className="grid-col gap-2">
           <MovieList movies={data.results} />
 
           <PageSelector
