@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import Navbar from "./components/Navbar";
@@ -25,6 +25,9 @@ function App() {
               <MoviesPage category="top-rated" />
             </Route>
             <Route path="/movie/:id" component={MoviePage} />
+            <Route exact path="/">
+              <Redirect to="/movies/now-playing" />
+            </Route>
           </Switch>
         </BrowserRouter>
       </QueryClientProvider>
