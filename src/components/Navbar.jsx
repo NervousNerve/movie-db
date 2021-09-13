@@ -1,15 +1,33 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import style from "./css/Navbar.module.css";
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navRef = useRef();
+
+  useEffect(() => {
+    navRef.current.addEventListener("mouseleave", () => {
+      setIsMenuOpen(false);
+    });
+  }, []);
+
   return (
-    <nav>
+    <nav ref={navRef}>
       <div className={style.navbar}>
         <h1 className="text-bold m-0 font-size-md">movie-db</h1>
 
-        <ul className="list-style-none my-0 pl-0 flex gap-2">
+        <div />
+
+        <button
+          className={style.hamburger}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <img src={isMenuOpen ? "/menu-open.svg" : "/menu.svg"} />
+        </button>
+
+        <ul className={[style.links, !isMenuOpen && style.hidden].join(" ")}>
           <li>
             <NavLink to="/movies/now-playing" className="color-white">
               Now Playing
