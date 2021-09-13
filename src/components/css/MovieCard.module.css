@@ -3,8 +3,10 @@
 }
 
 .noImg {
-  background: var(--bg-dark);
+  width: 10rem;
   height: 15rem;
+  background: var(--bg-dark);
+  border-radius: 0.25rem;
 }
 
 .movieCard img {
