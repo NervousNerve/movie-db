@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useQuery } from "react-query";
+import { useQueryParam, NumberParam, withDefault } from "use-query-params";
 
 import MovieList from "../components/MovieList";
 import PageSelector from "../components/PageSelector";
@@ -9,8 +10,10 @@ import useCategory from "../hooks/useCategory";
 import style from "./css/moviesPage.module.css";
 
 const MoviesPage = ({ category }) => {
+  const [page, setPage] = useQueryParam("page", withDefault(NumberParam, 1));
+
   const movieCategory = useCategory(category);
-  const [page, setPage] = useState(1);
+
   const { data } = useQuery(
     ["movies", category, page],
     () => movieCategory.queryFn(page),
