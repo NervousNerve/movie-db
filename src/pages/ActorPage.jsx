@@ -21,17 +21,26 @@ const ActorPage = () => {
     <div className={`${style.actorPage} color-white`}>
       <main>
         <div className={style.topSection}>
-          <img src={imgUrl.small + data.profile_path} />
+          {data.profile_path && <img src={imgUrl.small + data.profile_path} />}
 
           <div>
             <h2 className="font-size-xxl mb-1">{data.name}</h2>
           </div>
         </div>
 
-        <p>{data.biography}</p>
+        {data.biography && (
+          <>
+            <h3 className="text-center">Biography</h3>
+            <p className={style.whiteSpace}>{data.biography}</p>
+          </>
+        )}
 
-        <h3 className="text-center">Known For</h3>
-        {movies && <MovieList movies={movies.results.slice(0, 8)} />}
+        {movies?.results?.length > 0 && (
+          <div>
+            <h3 className="text-center">Known For</h3>
+            <MovieList movies={movies.results.slice(0, 8)} />
+          </div>
+        )}
       </main>
     </div>
   );

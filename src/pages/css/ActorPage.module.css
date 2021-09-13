@@ -6,9 +6,16 @@
   margin-top: var(--gap);
   margin-left: auto;
   margin-right: auto;
+}
 
-  /* position: relative;
-  top: calc(-33vh + var(--gap)); */
+.topSection img {
+  border-radius: 0.25rem;
+}
+
+.topSection h3 {
+  background: var(--color-accent);
+  padding: calc(var(--gap) / 2);
+  border-radius: 0.25rem;
 }
 
 .actorList {
@@ -19,6 +26,17 @@
   padding-left: 0;
   width: max-content;
   margin: 0 auto;
+}
+
+.noImg {
+  width: 10rem;
+  height: 15rem;
+  background: var(--bg-dark);
+  border-radius: 0.25rem;
+}
+
+.whiteSpace {
+  white-space: pre-wrap;
 }
 
 @media screen and (min-width: 520px) {
