@@ -16,5 +16,10 @@
 }
 
 .picture:hover {
-  box-shadow: 0 0 2px 4px #fffc;
+  box-shadow: 0 0 0 4px #fffd;
+}
+
+.picture:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px #fffd;
 }
