@@ -15,15 +15,20 @@ const MoviePage = () => {
 
   if (!data) return null;
 
+  const cast = data.credits.cast;
+  const movies = data.recommendations.results;
+
   return (
     <div className={`${style.moviePage} color-white`}>
       <div className={style.backdrop}>
-        <img src={imgUrl.large + data.backdrop_path} />
+        {data.backdrop_path && <img src={imgUrl.large + data.backdrop_path} />}
       </div>
 
       <main>
         <div className={style.topSection}>
-          <img src={imgUrl.small + data.poster_path} />
+          {data.poster_path && (
+            <img src={imgUrl.small + data.poster_path} className="rounded" />
+          )}
 
           <div>
             <h2 className="font-size-xxl mb-1">{data.title}</h2>
@@ -38,19 +43,27 @@ const MoviePage = () => {
           </div>
         </div>
 
-        <p>{data.overview}</p>
+        {data.overview && <p>{data.overview}</p>}
 
-        <h3 className="text-center">Top Cast</h3>
-        <ol className={style.actorList}>
-          {data.credits.cast.slice(0, 9).map((actor, i) => (
-            <li key={i}>
-              <ActorCard actor={actor} />
-            </li>
-          ))}
-        </ol>
+        {cast?.length > 0 && (
+          <>
+            <h3 className="text-center">Top Cast</h3>
+            <ol className={style.actorList}>
+              {cast.slice(0, 9).map((actor, i) => (
+                <li key={i}>
+                  <ActorCard actor={actor} />
+                </li>
+              ))}
+            </ol>
+          </>
+        )}
 
-        <h3 className="text-center">Recommended</h3>
-        <MovieList movies={data.recommendations.results.slice(0, 8)} />
+        {movies?.length > 0 && (
+          <>
+            <h3 className="text-center">Recommended</h3>
+            <MovieList movies={movies.slice(0, 8)} />
+          </>
+        )}
       </main>
     </div>
   );
