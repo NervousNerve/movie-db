@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router";
 import { useQuery } from "react-query";
 
-import { imgUrl, getPersonById } from "../services/tmdb";
+import { imgUrl, getPersonById, getMoviesByPersons } from "../services/tmdb";
 
 import MovieList from "../components/MovieList";
 
@@ -10,7 +10,10 @@ import style from "./css/ActorPage.module.css";
 
 const ActorPage = () => {
   const { id } = useParams();
-  const { data } = useQuery(["actor"], () => getPersonById(id));
+  const { data } = useQuery(["actor", id], () => getPersonById(id));
+  const { data: movies } = useQuery(["actor", "movies", id], () =>
+    getMoviesByPersons(id)
+  );
 
   if (!data) return null;
 
@@ -28,7 +31,7 @@ const ActorPage = () => {
         <p>{data.biography}</p>
 
         <h3 className="text-center">Known For</h3>
-        <MovieList movies={data.movie_credits.cast.slice(0, 8)} />
+        {movies && <MovieList movies={movies.results.slice(0, 8)} />}
       </main>
     </div>
   );
