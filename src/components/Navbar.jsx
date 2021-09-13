@@ -18,8 +18,6 @@ const Navbar = () => {
       <div className={style.navbar}>
         <h1 className="text-bold m-0 font-size-md">movie-db</h1>
 
-        <div />
-
         <button
           className={style.hamburger}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
