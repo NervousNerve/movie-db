@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import MoviePage from "./pages/MoviePage";
 import MoviesPage from "./pages/MoviesPage";
 import GenresPage from "./pages/GenresPage";
+import ActorPage from "./pages/ActorPage";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ function App() {
               <GenresPage />
             </Route>
             <Route path="/movie/:id" component={MoviePage} />
+            <Route path="/actor/:id" component={ActorPage} />
             <Route exact path="/">
               <Redirect to="/movies/now-playing" />
             </Route>

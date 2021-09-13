@@ -1,0 +1,50 @@
+.actorPage main {
+  max-width: 800px;
+  padding-left: var(--gap);
+  padding-right: var(--gap);
+  padding-bottom: var(--gap);
+  margin-top: var(--gap);
+  margin-left: auto;
+  margin-right: auto;
+
+  /* position: relative;
+  top: calc(-33vh + var(--gap)); */
+}
+
+.actorList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+  list-style: none;
+  padding-left: 0;
+  width: max-content;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 520px) {
+  .actorPage main {
+    top: -13rem;
+  }
+
+  .topSection {
+    display: flex;
+    align-items: end;
+    gap: var(--gap);
+  }
+
+  .topSection h2 {
+    margin: 0;
+  }
+
+  .actorList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .actorList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

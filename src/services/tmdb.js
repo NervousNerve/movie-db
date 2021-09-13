@@ -48,3 +48,9 @@ export const getGenres = async () => {
 export const getMoviesByGenres = async (page, genres = "") => {
   return await get("/discover/movie", { page, with_genres: genres });
 };
+
+export const getPersonById = async (id) => {
+  return await get("/person/" + id, {
+    append_to_response: "movie_credits",
+  });
+};
