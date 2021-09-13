@@ -9,9 +9,12 @@ const MovieCard = ({ movie }) => {
   return (
     <div className={style.movieCard}>
       <Link to={"/movie/" + movie.id}>
-        <img src={imgUrl.small + movie.poster_path} className="rounded" />
+        {movie.poster_path ? (
+          <img src={imgUrl.small + movie.poster_path} className="rounded" />
+        ) : (
+          <div className={`${style.noImg} rounded`} />
+        )}
       </Link>
-
       <div>
         <Link to={"/movie/" + movie.id} className="color-white m-0">
           {movie.title}

@@ -2,6 +2,11 @@
   width: 10rem;
 }
 
+.noImg {
+  background: var(--bg-dark);
+  height: 15rem;
+}
+
 .movieCard img {
   width: 100%;
 }
