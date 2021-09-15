@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import { useQuery } from "react-query";
 
@@ -17,8 +17,18 @@ const MoviePage = () => {
     queryFn: () => getMovieById(id),
   });
 
+  useEffect(() => {
+    if (!movie) return;
+    // Save last 10 viewed movies
+    const recent = JSON.parse(localStorage.getItem("recentMovies")) || [];
+    if (recent.length >= 10) recent.pop();
+    recent.unshift(movie);
+    localStorage.setItem("recentMovies", JSON.stringify(recent));
+  }, [movie]);
+
   if (!movie) return null;
 
+  // Shortcuts for convenience
   const cast = movie.credits.cast;
   const recommendations = movie.recommendations.results;
 
