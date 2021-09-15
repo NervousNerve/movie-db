@@ -75,7 +75,7 @@ const MoviePage = () => {
         {recommendations?.length > 0 && (
           <>
             <h3 className="text-center">Recommended</h3>
-            <MovieList movies={recommendations.slice(0, 8)} />
+            <MovieList movies={recommendations.slice(0, 6)} />
           </>
         )}
       </main>
