@@ -14,15 +14,10 @@ const MoviesPage = ({ category }) => {
 
   const movieCategory = useCategory(category);
 
-  const { data } = useQuery(
-    ["movies", category, page],
-    () => movieCategory.queryFn(page),
-    {
-      keepPreviousData: true,
-      staleTime: 1000 * 60 * 5,
-      cacheTime: 1000 * 60 * 60,
-    }
-  );
+  const { data } = useQuery({
+    queryKey: ["movies", category, page],
+    queryFn: () => movieCategory.queryFn(page),
+  });
 
   return (
     <div className={style.moviesPage}>

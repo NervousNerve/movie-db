@@ -10,28 +10,36 @@ import style from "./css/ActorPage.module.css";
 
 const ActorPage = () => {
   const { id } = useParams();
-  const { data } = useQuery(["actor", id], () => getPersonById(id));
-  const { data: movies } = useQuery(["actor", "movies", id], () =>
-    getMoviesByPersons(id)
-  );
 
-  if (!data) return null;
+  const { data: actor } = useQuery({
+    queryKey: ["actor", id],
+    queryFn: () => getPersonById(id),
+  });
+
+  const { data: movies } = useQuery({
+    queryKey: ["actor", "movies", id],
+    queryFn: () => getMoviesByPersons(id),
+  });
+
+  if (!actor) return null;
 
   return (
     <div className={`${style.actorPage} color-white`}>
       <main>
         <div className={style.topSection}>
-          {data.profile_path && <img src={imgUrl.small + data.profile_path} />}
+          {actor.profile_path && (
+            <img src={imgUrl.small + actor.profile_path} />
+          )}
 
           <div>
-            <h2 className="font-size-xxl mb-1">{data.name}</h2>
+            <h2 className="font-size-xxl mb-1">{actor.name}</h2>
           </div>
         </div>
 
-        {data.biography && (
+        {actor.biography && (
           <>
             <h3 className="text-center">Biography</h3>
-            <p className={style.whiteSpace}>{data.biography}</p>
+            <p className={style.whiteSpace}>{actor.biography}</p>
           </>
         )}
 

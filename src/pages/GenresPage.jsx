@@ -18,21 +18,17 @@ const GenresPage = () => {
     withDefault(CommaNumberArrayParam, [])
   );
 
-  const { data: allGenres } = useQuery(["genres"], () => getGenres(), {
-    keepPreviousData: true,
+  const { data: allGenres } = useQuery({
+    queryKey: "genres",
+    queryFn: () => getGenres(),
     staleTime: 1000 * 60 * 60,
     cacheTime: 1000 * 60 * 60 * 24,
   });
 
-  const { data: movies } = useQuery(
-    ["movies", "genres", genres.join(","), page],
-    () => getMoviesByGenres(page, genres.join(",")),
-    {
-      keepPreviousData: true,
-      staleTime: 1000 * 60,
-      cacheTime: 1000 * 60 * 5,
-    }
-  );
+  const { data: movies } = useQuery({
+    queryKey: ["movies", "genres", genres.join(","), page],
+    queryFn: () => getMoviesByGenres(page, genres.join(",")),
+  });
 
   const handleClickGenre = (id) => {
     if (genres.includes(id)) {

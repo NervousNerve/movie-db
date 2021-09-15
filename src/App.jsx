@@ -11,7 +11,15 @@ import GenresPage from "./pages/GenresPage";
 import ActorPage from "./pages/ActorPage";
 import SearchPage from "./pages/SearchPage";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      keepPreviousData: true,
+      staleTime: 1000 * 60 * 5,
+      cacheTime: 1000 * 60 * 60,
+    },
+  },
+});
 
 function App() {
   return (

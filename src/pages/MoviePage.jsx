@@ -11,7 +11,11 @@ import style from "./css/MoviePage.module.css";
 
 const MoviePage = () => {
   const { id } = useParams();
-  const { data } = useQuery(["movie", id], () => getMovieById(id));
+
+  const { data } = useQuery({
+    queryKey: ["movie", id],
+    queryFn: () => getMovieById(id),
+  });
 
   if (!data) return null;
 
