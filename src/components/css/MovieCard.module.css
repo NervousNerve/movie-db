@@ -1,10 +1,11 @@
 .movieCard {
-  width: 10rem;
+  --card-width: 200px;
+  width: var(--card-width);
 }
 
 .noImg {
-  width: 10rem;
-  height: 15rem;
+  width: var(--card-width);
+  height: calc(var(--card-width) * 1.5);
   background: var(--bg-dark);
   border-radius: 0.25rem;
 }
