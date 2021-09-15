@@ -15,11 +15,8 @@
   object-fit: contain;
 }
 
-.picture:hover {
-  box-shadow: 0 0 0 4px #fffd;
-}
-
+.picture:hover,
 .picture:focus {
   outline: none;
-  box-shadow: 0 0 0 4px #fffd;
+  box-shadow: var(--outline);
 }

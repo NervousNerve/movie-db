@@ -13,11 +13,8 @@
   width: 100%;
 }
 
-.movieCard img:hover {
-  box-shadow: 0 0 0 4px #fffd;
-}
-
-.movieCard img:focus {
+.movieCard img:hover,
+.movieCard a:focus img {
   outline: none;
-  box-shadow: 0 0 0 4px #fffd;
+  box-shadow: var(--outline);
 }
