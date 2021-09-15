@@ -7,7 +7,7 @@ import PageSelector from "../components/PageSelector";
 
 import useCategory from "../hooks/useCategory";
 
-import style from "./css/moviesPage.module.css";
+import style from "./css/MoviesPage.module.css";
 
 const MoviesPage = ({ category }) => {
   const [page, setPage] = useQueryParam("page", withDefault(NumberParam, 1));
