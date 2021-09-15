@@ -51,6 +51,11 @@ const Navbar = () => {
               Search
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/recent" className="color-white">
+              Viewed recently
+            </NavLink>
+          </li>
         </ul>
       </div>
 

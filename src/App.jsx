@@ -10,6 +10,7 @@ import CategoryPage from "./pages/CategoryPage";
 import GenresPage from "./pages/GenresPage";
 import ActorPage from "./pages/ActorPage";
 import SearchPage from "./pages/SearchPage";
+import RecentPage from "./pages/RecentPage";
 
 import categories from "./pages/dynamic/categories";
 
@@ -50,6 +51,9 @@ function App() {
               </Route>
               <Route path="/search">
                 <SearchPage />
+              </Route>
+              <Route path="/recent">
+                <RecentPage />
               </Route>
               <Route
                 render={() => {

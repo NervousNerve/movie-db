@@ -6,11 +6,13 @@ import { imgUrl, getMovieById } from "../services/tmdb";
 
 import MovieList from "../components/MovieList";
 import ActorCard from "../components/ActorCard";
+import { useRecentViews } from "../hooks/useRecentViews";
 
 import style from "./css/MoviePage.module.css";
 
 const MoviePage = () => {
   const { id } = useParams();
+  const { addMovie } = useRecentViews();
 
   const { data: movie } = useQuery({
     queryKey: ["movie", id],
@@ -19,11 +21,7 @@ const MoviePage = () => {
 
   useEffect(() => {
     if (!movie) return;
-    // Save last 10 viewed movies
-    const recent = JSON.parse(localStorage.getItem("recentMovies")) || [];
-    if (recent.length >= 10) recent.pop();
-    recent.unshift(movie);
-    localStorage.setItem("recentMovies", JSON.stringify(recent));
+    addMovie(movie);
   }, [movie]);
 
   if (!movie) return null;
