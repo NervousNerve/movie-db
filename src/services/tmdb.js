@@ -22,16 +22,19 @@ const get = async (endpoint, params) => {
   return await response.json();
 };
 
-export const getNowPlaying = async (page) => {
-  return await get("/movie/now_playing", { page });
+export const getMoviesByCategory = async (category, page = 1) => {
+  return await get("/movie/" + category, { page });
 };
 
-export const getPopular = async (page) => {
-  return await get("/movie/popular", { page });
+export const getMoviesByGenres = async (genres = "", page = 1) => {
+  return await get("/discover/movie", { page, with_genres: genres });
 };
 
-export const getTopRated = async (page) => {
-  return await get("/movie/top_rated", { page });
+export const getMoviesByPersons = async (persons) => {
+  return await get("/discover/movie", {
+    with_cast: persons,
+    sort_by: "popularity.desc",
+  });
 };
 
 export const getMovieById = async (id) => {
@@ -43,17 +46,6 @@ export const getMovieById = async (id) => {
 export const getGenres = async () => {
   const response = await get("/genre/movie/list");
   return response.genres;
-};
-
-export const getMoviesByGenres = async (page, genres = "") => {
-  return await get("/discover/movie", { page, with_genres: genres });
-};
-
-export const getMoviesByPersons = async (persons = "") => {
-  return await get("/discover/movie", {
-    with_cast: persons,
-    sort_by: "popularity.desc",
-  });
 };
 
 export const getPersonById = async (id) => {

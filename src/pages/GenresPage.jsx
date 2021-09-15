@@ -26,8 +26,8 @@ const GenresPage = () => {
   });
 
   const { data: movies } = useQuery({
-    queryKey: ["movies", "genres", genres.join(","), page],
-    queryFn: () => getMoviesByGenres(page, genres.join(",")),
+    queryKey: ["movies", "genres", genres.join(), page],
+    queryFn: () => getMoviesByGenres(genres.join(), page),
   });
 
   const handleClickGenre = (id) => {

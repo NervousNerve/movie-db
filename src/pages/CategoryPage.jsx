@@ -5,6 +5,8 @@ import { useQueryParam, NumberParam, withDefault } from "use-query-params";
 import MovieList from "../components/MovieList";
 import PageSelector from "../components/PageSelector";
 
+import { getMoviesByCategory } from "../services/tmdb";
+
 import style from "./css/MoviesPage.module.css";
 
 const CategoryPage = ({ category }) => {
@@ -12,7 +14,7 @@ const CategoryPage = ({ category }) => {
 
   const { data } = useQuery({
     queryKey: ["movies", category.name, page],
-    queryFn: () => category.queryFn(page),
+    queryFn: () => getMoviesByCategory(category.query, page),
   });
 
   return (

@@ -1,20 +1,18 @@
-import { getNowPlaying, getPopular, getTopRated } from "../../services/tmdb";
-
 const categories = [
   {
     name: "now-playing",
     title: "Now Playing",
-    queryFn: getNowPlaying,
+    query: "now_playing",
   },
   {
     name: "popular",
     title: "Popular",
-    queryFn: getPopular,
+    query: "popular",
   },
   {
     name: "top-rated",
     title: "Top Rated",
-    queryFn: getTopRated,
+    query: "top_rated",
   },
 ];
 
