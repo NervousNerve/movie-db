@@ -39,13 +39,13 @@
   align-items: end;
 }
 
-@media screen and (max-width: 519px) {
+@media screen and (max-width: 719px) {
   .hidden {
     display: none;
   }
 }
 
-@media screen and (min-width: 520px) {
+@media screen and (min-width: 720px) {
   .navbar {
     padding-bottom: 0;
   }
