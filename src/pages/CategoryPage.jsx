@@ -7,7 +7,7 @@ import PageSelector from "../components/PageSelector";
 
 import { getMoviesByCategory } from "../services/tmdb";
 
-import style from "./css/MoviesPage.module.css";
+import style from "./css/CategoryPage.module.css";
 
 const CategoryPage = ({ category }) => {
   const [page, setPage] = useQueryParam("page", withDefault(NumberParam, 1));
@@ -18,7 +18,7 @@ const CategoryPage = ({ category }) => {
   });
 
   return (
-    <div className={style.moviesPage}>
+    <div className={style.categoryPage}>
       <h2 className="color-white text-center">{category.title}</h2>
 
       {data && (
