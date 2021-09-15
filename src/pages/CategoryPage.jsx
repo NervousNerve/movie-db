@@ -5,23 +5,19 @@ import { useQueryParam, NumberParam, withDefault } from "use-query-params";
 import MovieList from "../components/MovieList";
 import PageSelector from "../components/PageSelector";
 
-import useCategory from "../hooks/useCategory";
-
 import style from "./css/MoviesPage.module.css";
 
-const MoviesPage = ({ category }) => {
+const CategoryPage = ({ category }) => {
   const [page, setPage] = useQueryParam("page", withDefault(NumberParam, 1));
 
-  const movieCategory = useCategory(category);
-
   const { data } = useQuery({
-    queryKey: ["movies", category, page],
-    queryFn: () => movieCategory.queryFn(page),
+    queryKey: ["movies", category.name, page],
+    queryFn: () => category.queryFn(page),
   });
 
   return (
     <div className={style.moviesPage}>
-      <h2 className="color-white text-center">{movieCategory.title}</h2>
+      <h2 className="color-white text-center">{category.title}</h2>
 
       {data && (
         <div className="grid-col gap-2">
@@ -38,4 +34,4 @@ const MoviesPage = ({ category }) => {
   );
 };
 
-export default MoviesPage;
+export default CategoryPage;

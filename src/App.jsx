@@ -6,10 +6,12 @@ import { QueryParamProvider } from "use-query-params";
 
 import Navbar from "./components/Navbar";
 import MoviePage from "./pages/MoviePage";
-import MoviesPage from "./pages/MoviesPage";
+import CategoryPage from "./pages/CategoryPage";
 import GenresPage from "./pages/GenresPage";
 import ActorPage from "./pages/ActorPage";
 import SearchPage from "./pages/SearchPage";
+
+import categories from "./pages/dynamic/categories";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,23 +32,30 @@ function App() {
             <Navbar />
             <Switch>
               <Route exact path="/">
-                <Redirect to="/movies/now-playing" />
+                <Redirect to={`/movies/${categories[0].name}`} />
               </Route>
-              <Route path="/movies/now-playing">
-                <MoviesPage category="now-playing" />
+              {categories.map((c) => (
+                <Route path={`/movies/${c.name}`} key={c.name}>
+                  <CategoryPage category={c} />
+                </Route>
+              ))}
+              <Route path="/movies/:id">
+                <MoviePage />
               </Route>
-              <Route path="/movies/popular">
-                <MoviesPage category="popular" />
-              </Route>
-              <Route path="/movies/top-rated">
-                <MoviesPage category="top-rated" />
+              <Route path="/actors/:id">
+                <ActorPage />
               </Route>
               <Route path="/genres">
                 <GenresPage />
               </Route>
-              <Route path="/movie/:id" component={MoviePage} />
-              <Route path="/actor/:id" component={ActorPage} />
-              <Route path="/search" component={SearchPage} />
+              <Route path="/search">
+                <SearchPage />
+              </Route>
+              <Route
+                render={() => {
+                  console.log("404 Not Found");
+                }}
+              />
             </Switch>
           </QueryParamProvider>
         </BrowserRouter>
