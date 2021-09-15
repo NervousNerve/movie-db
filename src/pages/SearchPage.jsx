@@ -15,14 +15,13 @@ import { searchMovies } from "../services/tmdb";
 import style from "./css/SearchPage.module.css";
 
 const SearchPage = () => {
-  const [search, setSearch] = useQueryParam("search", StringParam);
+  const [search, setSearch] = useQueryParam("q", StringParam);
   const [page, setPage] = useQueryParam("page", withDefault(NumberParam, 1));
   const searchInput = useRef();
 
-  const { data, refetch } = useQuery({
+  const { data } = useQuery({
     queryKey: ["movies", "search", search, page],
     queryFn: () => searchMovies(search, page),
-    enabled: false, // Trigger query manually
   });
 
   const handleSubmit = (e) => {
@@ -36,9 +35,9 @@ const SearchPage = () => {
   };
 
   useEffect(() => {
+    // Fill input on render if query param is set
     searchInput.current.value = search || "";
-    refetch();
-  }, [search, page]);
+  }, [search]);
 
   return (
     <div className={style.searchPage}>
