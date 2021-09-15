@@ -24,6 +24,9 @@
   margin: 0;
   grid-column: 3;
 }
+.hamburger img {
+  vertical-align: middle;
+}
 
 .links {
   list-style: none;
