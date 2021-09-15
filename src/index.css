@@ -12,6 +12,8 @@
   --gap: 1rem;
   --gap-half: calc(var(--gap) / 2);
   --gap-quart: calc(var(--gap) / 4);
+
+  --outline: 0 0 0 1px #0006, 0 0 0 4px #fffd;
 }
 
 body {
@@ -44,23 +46,34 @@ a.active { font-weight: bold; }
 
 input, select {
   font-size: 1rem;
-  border: 1px solid var(--color-light);
-  border-radius: 0;
-  padding: 0.25em 0.5em;
+  box-sizing: border-box;
+  height: calc(2em + 2px);
+  padding: 0 0.5em;
+  border: none;
+  border-radius: 0.25em;
+}
+input:hover,
+input:focus {
+  outline: none;
+  box-shadow: var(--outline);
 }
 
 button {
   font-size: 1rem;
   border: none;
   padding: .5em 1em;
+  color: white;
+  border-radius: 0.25rem;
   background: var(--bg-light);
 }
-button:hover {
-  box-shadow: 0 0 0 4px #fffd;
-}
+button:hover:not(:disabled),
 button:focus {
   outline: none;
-  box-shadow: 0 0 0 4px #fffd;
+  box-shadow: var(--outline);
+}
+button:disabled {
+  background: var(--color-dark);
+  opacity: 50%;
 }
 
 label {

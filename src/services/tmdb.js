@@ -61,3 +61,7 @@ export const getPersonById = async (id) => {
     append_to_response: "movie_credits",
   });
 };
+
+export const searchMovies = async (query = "", page = 1) => {
+  return await get("/search/movie", { query, page });
+};

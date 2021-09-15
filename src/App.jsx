@@ -9,6 +9,7 @@ import MoviePage from "./pages/MoviePage";
 import MoviesPage from "./pages/MoviesPage";
 import GenresPage from "./pages/GenresPage";
 import ActorPage from "./pages/ActorPage";
+import SearchPage from "./pages/SearchPage";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,9 @@ function App() {
           <QueryParamProvider ReactRouterRoute={Route}>
             <Navbar />
             <Switch>
+              <Route exact path="/">
+                <Redirect to="/movies/now-playing" />
+              </Route>
               <Route path="/movies/now-playing">
                 <MoviesPage category="now-playing" />
               </Route>
@@ -34,9 +38,7 @@ function App() {
               </Route>
               <Route path="/movie/:id" component={MoviePage} />
               <Route path="/actor/:id" component={ActorPage} />
-              <Route exact path="/">
-                <Redirect to="/movies/now-playing" />
-              </Route>
+              <Route path="/search" component={SearchPage} />
             </Switch>
           </QueryParamProvider>
         </BrowserRouter>

@@ -46,6 +46,11 @@ const Navbar = () => {
               Genres
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/search" className="color-white">
+              Search
+            </NavLink>
+          </li>
         </ul>
       </div>
 
