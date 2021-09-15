@@ -35,25 +35,26 @@ function App() {
               <Route exact path="/">
                 <Redirect to={`/movies/${categories[0].name}`} />
               </Route>
+              {/* Dynamically add functionally similar pages */}
               {categories.map((c) => (
                 <Route path={`/movies/${c.name}`} key={c.name}>
                   <CategoryPage category={c} />
                 </Route>
               ))}
+              <Route path="/movies/genres">
+                <GenresPage />
+              </Route>
+              <Route path="/movies/search">
+                <SearchPage />
+              </Route>
+              <Route path="/movies/recent">
+                <RecentPage />
+              </Route>
               <Route path="/movies/:id">
                 <MoviePage />
               </Route>
               <Route path="/actors/:id">
                 <ActorPage />
-              </Route>
-              <Route path="/genres">
-                <GenresPage />
-              </Route>
-              <Route path="/search">
-                <SearchPage />
-              </Route>
-              <Route path="/recent">
-                <RecentPage />
               </Route>
               <Route
                 render={() => {
