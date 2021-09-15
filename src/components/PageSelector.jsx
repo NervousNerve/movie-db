@@ -6,25 +6,25 @@ const PageSelector = ({ currentPage, totalPages, onChange }) => {
   };
 
   return (
-    <div className="flex gap-2 justify-center list-style-none pl-0 color-white">
+    <div className="flex gap-2 justify-center align-center list-style-none pl-0">
       <button
-        className="bg-accent color-white font-size-sm rounded"
+        className="bg-accent"
         onClick={() => onClick(currentPage - 1)}
         disabled={currentPage <= 1}
       >
-        Previous page
+        Prev
       </button>
 
-      <span>
+      <span className="color-white">
         {currentPage} / {totalPages}
       </span>
 
       <button
-        className="bg-accent color-white font-size-sm rounded"
+        className="bg-accent"
         onClick={() => onClick(currentPage + 1)}
         disabled={currentPage >= totalPages}
       >
-        Next page
+        Next
       </button>
     </div>
   );
