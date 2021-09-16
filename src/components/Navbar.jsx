@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
+import categories from "../pages/dynamic/categories";
+
 import style from "./css/Navbar.module.css";
 
 const Navbar = () => {
@@ -26,21 +28,15 @@ const Navbar = () => {
         </button>
 
         <ul className={[style.links, !isMenuOpen && style.hidden].join(" ")}>
-          <li>
-            <NavLink to="/movies/now-playing" className="color-white">
-              Now Playing
+          {categories.map((c) => (
+            <NavLink
+              to={`/movies/${c.name}`}
+              key={c.name}
+              className="color-white"
+            >
+              {c.title}
             </NavLink>
-          </li>
-          <li>
-            <NavLink to="/movies/popular" className="color-white">
-              Popular
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/movies/top-rated" className="color-white">
-              Top Rated
-            </NavLink>
-          </li>
+          ))}
           <li>
             <NavLink to="/movies/trending" className="color-white">
               Trending
