@@ -5,11 +5,6 @@ const categories = [
     query: "now_playing",
   },
   {
-    name: "popular",
-    title: "Popular",
-    query: "popular",
-  },
-  {
     name: "top-rated",
     title: "Top Rated",
     query: "top_rated",

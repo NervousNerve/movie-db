@@ -11,7 +11,7 @@ import GenresPage from "./pages/GenresPage";
 import ActorPage from "./pages/ActorPage";
 import SearchPage from "./pages/SearchPage";
 import RecentPage from "./pages/RecentPage";
-import TrendingPage from "./pages/TrendingPage";
+import PopularPage from "./pages/PopularPage";
 
 import categories from "./pages/dynamic/categories";
 
@@ -51,8 +51,8 @@ function App() {
               <Route path="/movies/recent">
                 <RecentPage />
               </Route>
-              <Route path="/movies/trending">
-                <TrendingPage />
+              <Route path="/movies/popular">
+                <PopularPage />
               </Route>
               <Route path="/movies/:id">
                 <MoviePage />

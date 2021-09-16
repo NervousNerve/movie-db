@@ -29,7 +29,7 @@ const TrendingPage = () => {
 
   return (
     <div className={style.trendingPage}>
-      <h2 className="color-white text-center">Trending</h2>
+      <h2 className="color-white text-center">Popular</h2>
 
       <div className="flex flex-wrap list-style-none pl-0 justify-center gap-05 my-1">
         <button

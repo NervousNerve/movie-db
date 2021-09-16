@@ -38,8 +38,8 @@ const Navbar = () => {
             </NavLink>
           ))}
           <li>
-            <NavLink to="/movies/trending" className="color-white">
-              Trending
+            <NavLink to="/movies/popular" className="color-white">
+              Popular
             </NavLink>
           </li>
           <li>
