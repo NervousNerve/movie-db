@@ -6,8 +6,8 @@ import {
   StringParam,
   withDefault,
 } from "use-query-params";
+import classNames from "classnames";
 
-import ButtonList from "../components/ButtonList";
 import MovieList from "../components/MovieList";
 import PageSelector from "../components/PageSelector";
 
@@ -31,21 +31,25 @@ const TrendingPage = () => {
     <div className={style.trendingPage}>
       <h2 className="color-white text-center">Trending</h2>
 
-      <ButtonList
-        className="justify-center gap-05"
-        buttons={[
-          {
-            text: "Today",
-            onClick: () => setTimeWindow("day"),
-            className: timeWindow === "day" ? "bg-accent" : "bg-dark",
-          },
-          {
-            text: "This week",
-            onClick: () => setTimeWindow("week"),
-            className: timeWindow === "week" ? "bg-accent" : "bg-dark",
-          },
-        ]}
-      />
+      <div className="flex flex-wrap list-style-none pl-0 justify-center gap-05 my-1">
+        <button
+          onClick={() => setTimeWindow("day")}
+          className={classNames("round", {
+            "bg-accent": timeWindow === "day",
+          })}
+        >
+          Today
+        </button>
+
+        <button
+          onClick={() => setTimeWindow("week")}
+          className={classNames("round", {
+            "bg-accent": timeWindow === "week",
+          })}
+        >
+          This week
+        </button>
+      </div>
 
       {movies?.results?.length > 0 ? (
         <>

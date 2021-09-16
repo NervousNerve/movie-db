@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import { useQueryParam, NumberParam, withDefault } from "use-query-params";
-import ButtonList from "../components/ButtonList";
+import classNames from "classnames";
 
 import MovieList from "../components/MovieList";
 import PageSelector from "../components/PageSelector";
@@ -44,16 +44,19 @@ const GenresPage = () => {
     <div className={style.genresPage}>
       <h2 className="color-white text-center">Genres</h2>
 
-      <ButtonList
-        className="justify-center gap-05"
-        buttons={allGenres?.map((genre) => {
-          return {
-            text: genre.name,
-            onClick: () => handleClickGenre(genre.id),
-            className: genres.includes(genre.id) ? "bg-accent" : "bg-dark",
-          };
-        })}
-      />
+      <div className="flex flex-wrap list-style-none pl-0 justify-center gap-05 my-1">
+        {allGenres?.map((genre, i) => (
+          <button
+            key={i}
+            onClick={() => handleClickGenre(genre.id)}
+            className={classNames("color-white round px-1 py-05", {
+              "bg-accent": genres.includes(genre.id),
+            })}
+          >
+            {genre.name}
+          </button>
+        ))}
+      </div>
 
       {movies?.results?.length > 0 ? (
         <>
