@@ -60,3 +60,7 @@ export const searchMovies = async (query, page = 1) => {
   if (!query) return;
   return await get("/search/movie", { query, page });
 };
+
+export const getTrendingMovies = async (timeWindow = "day", page = 1) => {
+  return await get("/trending/movie/" + timeWindow, { page });
+};
