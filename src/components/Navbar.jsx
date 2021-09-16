@@ -42,6 +42,11 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
+            <NavLink to="/movies/trending" className="color-white">
+              Trending
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/movies/genres" className="color-white">
               Genres
             </NavLink>
