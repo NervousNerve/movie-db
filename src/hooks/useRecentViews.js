@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 
+const KEY = "recentViews";
+const MAX_ITEMS = 10;
+
 export const useRecentViews = () => {
   const [movies, setMovies] = useState();
 
   useEffect(() => {
-    const recent = JSON.parse(localStorage.getItem("recentViews")) || [];
+    const recent = JSON.parse(localStorage.getItem(KEY)) || [];
     setMovies(recent);
   }, []);
 
   const addMovie = (movie) => {
-    const recent = JSON.parse(localStorage.getItem("recentViews")) || [];
+    const recent = JSON.parse(localStorage.getItem(KEY)) || [];
 
     const index = recent.findIndex((val) => val.id === movie.id);
     if (index >= 0) {
@@ -19,7 +22,7 @@ export const useRecentViews = () => {
     } else {
       // Movie is not in list
       // If list is full, remove the oldest
-      if (recent.length >= 10) recent.pop();
+      if (recent.length >= MAX_ITEMS) recent.pop();
       // Add new movie to front
       recent.unshift(movie);
     }
