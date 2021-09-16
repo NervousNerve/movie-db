@@ -9,6 +9,7 @@ import ActorCard from "../components/ActorCard";
 import { useRecentViews } from "../hooks/useRecentViews";
 
 import style from "./css/MoviePage.module.css";
+import { Link } from "react-router-dom";
 
 const MoviePage = () => {
   const { id } = useParams();
@@ -47,11 +48,15 @@ const MoviePage = () => {
           <div>
             <h2 className="font-size-xxl mb-1">{movie.title}</h2>
 
-            <div className="flex flex-wrap gap-05">
+            <div className="flex flex-wrap gap-05 list-style-none pl-0 m-0">
               {movie.genres.map((genre, i) => (
-                <span key={i} className="round bg-dark px-1 py-05">
+                <Link
+                  key={i}
+                  to={"/movies/genres?genres=" + genre.id}
+                  className="button round bg-dark px-1 py-05 color-white"
+                >
                   {genre.name}
-                </span>
+                </Link>
               ))}
             </div>
           </div>

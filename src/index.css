@@ -58,20 +58,24 @@ input:focus {
   box-shadow: var(--outline);
 }
 
-button {
+button, .button {
   font-size: 1rem;
   border: none;
   padding: .5em 1em;
   color: white;
   border-radius: 0.25rem;
-  background: var(--bg-light);
+  background: var(--bg-dark);
 }
 button:hover:not(:disabled),
-button:focus {
+.button:hover:not(:disabled),
+button:focus,
+.button:focus {
   outline: none;
   box-shadow: var(--outline);
+  text-decoration: none;
 }
-button:disabled {
+button:disabled,
+.button:disabled {
   background: var(--color-dark);
   opacity: 50%;
 }
