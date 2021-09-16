@@ -13,19 +13,20 @@ const ButtonList = ({ className, buttons }) => {
       )}
     >
       {buttons?.map((button, i) => (
-        <button
-          key={i}
-          onClick={button.onClick}
-          className={classNames(
-            "color-white",
-            "round",
-            "px-1",
-            "py-05",
-            button.className
-          )}
-        >
-          {button.text}
-        </button>
+        <li key={i}>
+          <button
+            onClick={button.onClick}
+            className={classNames(
+              "color-white",
+              "round",
+              "px-1",
+              "py-05",
+              button.className
+            )}
+          >
+            {button.text}
+          </button>
+        </li>
       ))}
     </ul>
   );
