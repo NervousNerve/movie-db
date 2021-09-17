@@ -7,7 +7,7 @@ const RecentPage = () => {
   const { movies } = useRecentViews();
 
   return (
-    <div className="container-lg">
+    <div className="container mb-1">
       <h2 className="color-white text-center">Viewed recently</h2>
 
       {movies && (

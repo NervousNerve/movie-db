@@ -12,7 +12,7 @@ import style from "./css/MoviePage.module.css";
 import { Link } from "react-router-dom";
 
 const MAX_ACTORS = 9;
-const MAX_RECOMMENDED = 8;
+const MAX_RECOMMENDED = 10;
 
 const MoviePage = () => {
   const { id } = useParams();
@@ -35,7 +35,7 @@ const MoviePage = () => {
   const recommendations = movie.recommendations.results;
 
   return (
-    <>
+    <div className="mb-1">
       <header className={style.header}>
         {movie.backdrop_path && (
           <div className={style.backdrop}>
@@ -43,7 +43,7 @@ const MoviePage = () => {
           </div>
         )}
 
-        <div className={"container-sm"}>
+        <div className={"container"}>
           <div className={style.headerContent}>
             {movie.poster_path && (
               <img src={imgUrl.small + movie.poster_path} className="rounded" />
@@ -68,7 +68,7 @@ const MoviePage = () => {
         </div>
       </header>
 
-      <main className="container-sm color-white">
+      <main className="container color-white">
         {movie.overview && <p>{movie.overview}</p>}
 
         <div className="flex flex-wrap gap-2">
@@ -123,7 +123,7 @@ const MoviePage = () => {
           </>
         )}
       </main>
-    </>
+    </div>
   );
 };
 

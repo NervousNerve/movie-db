@@ -39,7 +39,7 @@ const GenresPage = () => {
   };
 
   return (
-    <div className="container-lg">
+    <div className="container mb-1">
       <h2 className="color-white text-center">Genres</h2>
 
       <div className="flex flex-wrap list-style-none pl-0 justify-center gap-05 my-1">

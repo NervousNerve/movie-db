@@ -9,6 +9,7 @@ import {
 
 import MovieList from "../components/MovieList";
 import PageSelector from "../components/PageSelector";
+import classNames from "classnames";
 
 import { searchMovies } from "../services/tmdb";
 
@@ -40,7 +41,7 @@ const SearchPage = () => {
   }, [search]);
 
   return (
-    <div className="container-lg">
+    <div className="container mb-1">
       <h2 className="color-white text-center">Search</h2>
 
       <form

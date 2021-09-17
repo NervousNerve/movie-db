@@ -8,6 +8,8 @@ import MovieList from "../components/MovieList";
 
 import style from "./css/ActorPage.module.css";
 
+const MAX_MOVIES = 10;
+
 const ActorPage = () => {
   const { id } = useParams();
 
@@ -24,7 +26,7 @@ const ActorPage = () => {
   if (!actor) return null;
 
   return (
-    <div className={`${style.actorPage} color-white`}>
+    <div className={"container color-white mt-1 mb-1"}>
       <main>
         <div className={style.topSection}>
           {actor.profile_path && (
@@ -69,7 +71,7 @@ const ActorPage = () => {
         {movies?.results?.length > 0 && (
           <div>
             <h3 className="text-center">Known For</h3>
-            <MovieList movies={movies.results.slice(0, 8)} />
+            <MovieList movies={movies.results.slice(0, MAX_MOVIES)} />
           </div>
         )}
       </main>
