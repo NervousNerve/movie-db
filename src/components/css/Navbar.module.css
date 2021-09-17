@@ -40,7 +40,7 @@
 }
 
 @media screen and (max-width: 719px) {
-  .hidden {
+  .menuClosed {
     display: none;
   }
 }

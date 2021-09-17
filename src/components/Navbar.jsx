@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import classNames from "classnames";
 
 import categories from "../pages/dynamic/categories";
 
@@ -27,7 +28,9 @@ const Navbar = () => {
           <img src={isMenuOpen ? "/menu-open.svg" : "/menu.svg"} />
         </button>
 
-        <ul className={[style.links, !isMenuOpen && style.hidden].join(" ")}>
+        <ul
+          className={classNames(style.links, !isMenuOpen && style.menuClosed)}
+        >
           {categories.map((c) => (
             <NavLink
               to={`/movies/${c.name}`}
