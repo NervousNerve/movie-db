@@ -8,7 +8,7 @@ const PageSelector = ({ currentPage, totalPages, onChange }) => {
   return (
     <div className="flex gap-2 justify-center align-center list-style-none pl-0">
       <button
-        className="bg-accent"
+        className="bg-accent round"
         onClick={() => onClick(currentPage - 1)}
         disabled={currentPage <= 1}
       >
@@ -20,7 +20,7 @@ const PageSelector = ({ currentPage, totalPages, onChange }) => {
       </span>
 
       <button
-        className="bg-accent"
+        className="bg-accent round"
         onClick={() => onClick(currentPage + 1)}
         disabled={currentPage >= totalPages}
       >

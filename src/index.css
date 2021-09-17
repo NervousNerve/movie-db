@@ -50,7 +50,6 @@ input, select {
   height: calc(2em + 2px);
   padding: 0 0.5em;
   border: none;
-  border-radius: 0.25em;
 }
 input:hover,
 input:focus {
@@ -63,7 +62,6 @@ button, .button {
   border: none;
   padding: .5em 1em;
   color: white;
-  border-radius: 0.25rem;
   background: var(--bg-dark);
 }
 button:hover:not(:disabled),

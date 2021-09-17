@@ -51,12 +51,14 @@ const SearchPage = () => {
         <input
           placeholder="Movie title..."
           ref={searchInput}
-          className={style.search}
+          className={classNames(style.search, "round")}
         />
-        <button type="submit" className="bg-accent">
+        <button type="submit" className="bg-accent round">
           Search
         </button>
-        <button type="reset">Reset</button>
+        <button type="reset" className="round">
+          Reset
+        </button>
       </form>
 
       {data?.results?.length > 0 ? (
