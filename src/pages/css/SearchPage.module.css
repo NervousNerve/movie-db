@@ -1,26 +1,10 @@
-.searchPage {
-  max-width: 75rem;
-  padding-left: var(--gap);
-  padding-right: var(--gap);
-  padding-bottom: var(--gap);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.searchForm {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: calc(var(--gap) / 2);
-}
-
-.searchForm input {
+.search {
   flex-basis: 100%;
   flex-shrink: 0;
 }
 
 @media screen and (min-width: 520px) {
-  .searchForm input {
+  .search {
     flex-basis: 32ch;
   }
 }

@@ -40,15 +40,19 @@ const SearchPage = () => {
   }, [search]);
 
   return (
-    <div className={style.searchPage}>
+    <div className="container-lg">
       <h2 className="color-white text-center">Search</h2>
 
       <form
         onSubmit={handleSubmit}
         onReset={handleReset}
-        className={`${style.searchForm} mb-1`}
+        className="flex flex-wrap justify-center gap-05 mb-1"
       >
-        <input placeholder="Movie title..." ref={searchInput} />
+        <input
+          placeholder="Movie title..."
+          ref={searchInput}
+          className={style.search}
+        />
         <button type="submit" className="bg-accent">
           Search
         </button>

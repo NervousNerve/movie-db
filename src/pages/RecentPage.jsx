@@ -3,13 +3,11 @@ import React from "react";
 import MovieList from "../components/MovieList";
 import { useRecentViews } from "../hooks/useRecentViews";
 
-import style from "./css/CategoryPage.module.css";
-
 const RecentPage = () => {
   const { movies } = useRecentViews();
 
   return (
-    <div className={style.categoryPage}>
+    <div className="container-lg">
       <h2 className="color-white text-center">Viewed recently</h2>
 
       {movies && (

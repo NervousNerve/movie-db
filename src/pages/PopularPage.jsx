@@ -13,8 +13,6 @@ import PageSelector from "../components/PageSelector";
 
 import { getTrendingMovies } from "../services/tmdb";
 
-import style from "./css/TrendingPage.module.css";
-
 const TrendingPage = () => {
   const [page, setPage] = useQueryParam("page", withDefault(NumberParam, 1));
   const [timeWindow, setTimeWindow] = useQueryParam(
@@ -28,7 +26,7 @@ const TrendingPage = () => {
   });
 
   return (
-    <div className={style.trendingPage}>
+    <div className="container-lg">
       <h2 className="color-white text-center">Popular</h2>
 
       <div className="flex flex-wrap list-style-none pl-0 justify-center gap-05 my-1">

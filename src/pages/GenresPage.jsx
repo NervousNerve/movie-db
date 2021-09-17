@@ -9,8 +9,6 @@ import PageSelector from "../components/PageSelector";
 import { getGenres, getMoviesByGenres } from "../services/tmdb";
 import { CommaNumberArrayParam } from "../util/CommaNumberArrayParam";
 
-import style from "./css/GenresPage.module.css";
-
 const GenresPage = () => {
   const [page, setPage] = useQueryParam("page", withDefault(NumberParam, 1));
 
@@ -41,7 +39,7 @@ const GenresPage = () => {
   };
 
   return (
-    <div className={style.genresPage}>
+    <div className="container-lg">
       <h2 className="color-white text-center">Genres</h2>
 
       <div className="flex flex-wrap list-style-none pl-0 justify-center gap-05 my-1">
@@ -71,9 +69,7 @@ const GenresPage = () => {
           </div>
         </>
       ) : (
-        <h2 className="color-white text-center">
-          No results matching selection
-        </h2>
+        <p className="color-white text-center">No results matching selection</p>
       )}
     </div>
   );
