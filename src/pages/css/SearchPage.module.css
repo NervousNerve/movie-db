@@ -1,5 +1,5 @@
 .searchPage {
-  max-width: 1200px;
+  max-width: 75rem;
   padding-left: var(--gap);
   padding-right: var(--gap);
   padding-bottom: var(--gap);

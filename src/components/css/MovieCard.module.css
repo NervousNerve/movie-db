@@ -1,5 +1,5 @@
 .movieCard {
-  --card-width: 200px;
+  --card-width: 10rem;
   width: var(--card-width);
 }
 

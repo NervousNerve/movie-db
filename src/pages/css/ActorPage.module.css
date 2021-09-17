@@ -1,5 +1,5 @@
 .actorPage main {
-  max-width: 800px;
+  max-width: 50rem;
   padding-left: var(--gap);
   padding-right: var(--gap);
   padding-bottom: var(--gap);
@@ -9,6 +9,7 @@
 }
 
 .topSection img {
+  width: 12rem;
   border-radius: 0.25rem;
 }
 
