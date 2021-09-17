@@ -41,9 +41,7 @@ const MoviePage = () => {
 
       <main>
         <div className={style.topSection}>
-          {movie.poster_path && (
-            <img src={imgUrl.small + movie.poster_path} className="rounded" />
-          )}
+          {movie.poster_path && <img src={imgUrl.small + movie.poster_path} />}
 
           <div>
             <h2 className="font-size-xxl mb-1">{movie.title}</h2>
@@ -63,6 +61,38 @@ const MoviePage = () => {
         </div>
 
         {movie.overview && <p>{movie.overview}</p>}
+
+        <div className="flex flex-wrap gap-2">
+          {movie.title !== movie.original_title && (
+            <div>
+              <label>Original title</label>
+              <p className="m-0">{movie.original_title}</p>
+            </div>
+          )}
+
+          {movie.release_date && (
+            <div>
+              <label>Release date</label>
+              <p className="m-0">{movie.release_date}</p>
+            </div>
+          )}
+
+          {movie.runtime && (
+            <div>
+              <label>Runtime</label>
+              <p className="m-0">{movie.runtime} minutes</p>
+            </div>
+          )}
+
+          {movie.budget > 0 && (
+            <div>
+              <label>Budget</label>
+              <p className="m-0">
+                ${movie.budget.toLocaleString(navigator.language)}
+              </p>
+            </div>
+          )}
+        </div>
 
         {cast?.length > 0 && (
           <>

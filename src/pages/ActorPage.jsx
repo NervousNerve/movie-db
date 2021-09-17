@@ -36,6 +36,29 @@ const ActorPage = () => {
           </div>
         </div>
 
+        <div className="flex flex-wrap gap-2 my-1">
+          {actor.birthday && (
+            <div>
+              <label>Birthday</label>
+              <p className="m-0">{actor.birthday}</p>
+            </div>
+          )}
+
+          {actor.deathday && (
+            <div>
+              <label>Deathday</label>
+              <p className="m-0">{actor.deathday}</p>
+            </div>
+          )}
+
+          {actor.place_of_birth && (
+            <div>
+              <label>Place of birth</label>
+              <p className="m-0">{actor.place_of_birth}</p>
+            </div>
+          )}
+        </div>
+
         {actor.biography && (
           <>
             <h3 className="text-center">Biography</h3>
