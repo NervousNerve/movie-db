@@ -7,17 +7,17 @@ import PageSelector from "../components/PageSelector";
 
 import { getMoviesByCategory } from "../services/tmdb";
 
-const CategoryPage = ({ category }) => {
+const TopRatedPage = () => {
   const [page, setPage] = useQueryParam("page", withDefault(NumberParam, 1));
 
   const { data } = useQuery({
-    queryKey: ["movies", category.name, page],
-    queryFn: () => getMoviesByCategory(category.query, page),
+    queryKey: ["movies", "top_rated", page],
+    queryFn: () => getMoviesByCategory("top_rated", page),
   });
 
   return (
-    <div className="container-lg">
-      <h2 className="color-white text-center">{category.title}</h2>
+    <div className="container mb-1">
+      <h2 className="color-white text-center">Top Rated</h2>
 
       {data && (
         <div className="grid-col gap-2">
@@ -34,4 +34,4 @@ const CategoryPage = ({ category }) => {
   );
 };
 
-export default CategoryPage;
+export default TopRatedPage;

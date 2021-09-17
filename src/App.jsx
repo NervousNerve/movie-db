@@ -6,14 +6,13 @@ import { QueryParamProvider } from "use-query-params";
 
 import Navbar from "./components/Navbar";
 import MoviePage from "./pages/MoviePage";
-import CategoryPage from "./pages/CategoryPage";
+import NowPlayingPage from "./pages/NowPlayingPage";
+import TopRatedPage from "./pages/TopRatedPage";
 import GenresPage from "./pages/GenresPage";
 import ActorPage from "./pages/ActorPage";
 import SearchPage from "./pages/SearchPage";
 import RecentPage from "./pages/RecentPage";
 import PopularPage from "./pages/PopularPage";
-
-import categories from "./pages/dynamic/categories";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -34,14 +33,14 @@ function App() {
             <Navbar />
             <Switch>
               <Route exact path="/">
-                <Redirect to={`/movies/${categories[0].name}`} />
+                <Redirect to={"/movies/now-playing"} />
               </Route>
-              {/* Dynamically add functionally similar pages */}
-              {categories.map((c) => (
-                <Route path={`/movies/${c.name}`} key={c.name}>
-                  <CategoryPage category={c} />
-                </Route>
-              ))}
+              <Route path="/movies/now-playing">
+                <NowPlayingPage />
+              </Route>
+              <Route path="/movies/top-rated">
+                <TopRatedPage />
+              </Route>
               <Route path="/movies/genres">
                 <GenresPage />
               </Route>
