@@ -11,6 +11,9 @@ import { useRecentViews } from "../hooks/useRecentViews";
 import style from "./css/MoviePage.module.css";
 import { Link } from "react-router-dom";
 
+const MAX_ACTORS = 9;
+const MAX_RECOMMENDED = 8;
+
 const MoviePage = () => {
   const { id } = useParams();
   const { addMovie } = useRecentViews();
@@ -32,34 +35,40 @@ const MoviePage = () => {
   const recommendations = movie.recommendations.results;
 
   return (
-    <div className={`${style.moviePage} color-white`}>
-      <div className={style.backdrop}>
+    <>
+      <header className={style.header}>
         {movie.backdrop_path && (
-          <img src={imgUrl.large + movie.backdrop_path} />
+          <div className={style.backdrop}>
+            <img src={imgUrl.large + movie.backdrop_path} />
+          </div>
         )}
-      </div>
 
-      <main>
-        <div className={style.topSection}>
-          {movie.poster_path && <img src={imgUrl.small + movie.poster_path} />}
+        <div className={"container-sm"}>
+          <div className={style.headerContent}>
+            {movie.poster_path && (
+              <img src={imgUrl.small + movie.poster_path} className="rounded" />
+            )}
 
-          <div>
-            <h2 className="font-size-xxl mb-1">{movie.title}</h2>
+            <div>
+              <h2 className="font-size-xxl color-white my-1">{movie.title}</h2>
 
-            <div className="flex flex-wrap gap-05 list-style-none pl-0 m-0">
-              {movie.genres.map((genre, i) => (
-                <Link
-                  key={i}
-                  to={"/movies/genres?genres=" + genre.id}
-                  className="button round bg-dark px-1 py-05 color-white"
-                >
-                  {genre.name}
-                </Link>
-              ))}
+              <div className="flex flex-wrap gap-05 list-style-none pl-0 m-0">
+                {movie.genres.map((genre, i) => (
+                  <Link
+                    key={i}
+                    to={"/movies/genres?genres=" + genre.id}
+                    className="button round bg-dark px-1 py-05 color-white"
+                  >
+                    {genre.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
+      </header>
 
+      <main className="container-sm color-white">
         {movie.overview && <p>{movie.overview}</p>}
 
         <div className="flex flex-wrap gap-2">
@@ -98,7 +107,7 @@ const MoviePage = () => {
           <>
             <h3 className="text-center">Top Cast</h3>
             <ol className={style.actorList}>
-              {cast.slice(0, 9).map((actor, i) => (
+              {cast.slice(0, MAX_ACTORS).map((actor, i) => (
                 <li key={i}>
                   <ActorCard actor={actor} />
                 </li>
@@ -110,11 +119,11 @@ const MoviePage = () => {
         {recommendations?.length > 0 && (
           <>
             <h3 className="text-center">Recommended</h3>
-            <MovieList movies={recommendations.slice(0, 6)} />
+            <MovieList movies={recommendations.slice(0, MAX_RECOMMENDED)} />
           </>
         )}
       </main>
-    </div>
+    </>
   );
 };
 
