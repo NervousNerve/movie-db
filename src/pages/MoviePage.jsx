@@ -24,6 +24,7 @@ const MoviePage = () => {
   });
 
   useEffect(() => {
+    // Save movie to "history" in local storage on page load
     if (!movie) return;
     addMovie(movie);
   }, [movie]);
