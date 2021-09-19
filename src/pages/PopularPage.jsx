@@ -21,7 +21,7 @@ const TrendingPage = () => {
   );
 
   const { data: movies } = useQuery({
-    queryKey: ["movies", "trending", timeWindow, page],
+    queryKey: ["popular", timeWindow, page],
     queryFn: () => getTrendingMovies(timeWindow, page),
   });
 

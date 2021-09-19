@@ -11,7 +11,7 @@ const NowPlayingPage = () => {
   const [page, setPage] = useQueryParam("page", withDefault(NumberParam, 1));
 
   const { data } = useQuery({
-    queryKey: ["movies", "now_playing", page],
+    queryKey: ["now_playing", page],
     queryFn: () => getMoviesByCategory("now_playing", page),
   });
 

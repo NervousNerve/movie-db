@@ -21,7 +21,7 @@ const SearchPage = () => {
   const searchInput = useRef();
 
   const { data } = useQuery({
-    queryKey: ["movies", "search", search, page],
+    queryKey: ["search", search, page],
     queryFn: () => searchMovies(search, page),
   });
 

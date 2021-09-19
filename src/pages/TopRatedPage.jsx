@@ -11,7 +11,7 @@ const TopRatedPage = () => {
   const [page, setPage] = useQueryParam("page", withDefault(NumberParam, 1));
 
   const { data } = useQuery({
-    queryKey: ["movies", "top_rated", page],
+    queryKey: ["top_rated", page],
     queryFn: () => getMoviesByCategory("top_rated", page),
   });
 
