@@ -2,8 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import classNames from "classnames";
 
-import categories from "../pages/dynamic/categories";
-
 import style from "./css/Navbar.module.css";
 
 const Navbar = () => {
@@ -31,15 +29,16 @@ const Navbar = () => {
         <ul
           className={classNames(style.links, !isMenuOpen && style.menuClosed)}
         >
-          {categories.map((c) => (
-            <NavLink
-              to={`/movies/${c.name}`}
-              key={c.name}
-              className="color-white"
-            >
-              {c.title}
+          <li>
+            <NavLink to="/movies/now-playing" className="color-white">
+              Now Playing
             </NavLink>
-          ))}
+          </li>
+          <li>
+            <NavLink to="/movies/top-rated" className="color-white">
+              Top Rated
+            </NavLink>
+          </li>
           <li>
             <NavLink to="/movies/popular" className="color-white">
               Popular
