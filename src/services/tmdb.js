@@ -22,8 +22,12 @@ const get = async (endpoint, params) => {
   return await response.json();
 };
 
-export const getMoviesByCategory = async (category, page = 1) => {
-  return await get("/movie/" + category, { page });
+export const getNowPlayingMovies = async (page = 1) => {
+  return await get("/movie/now_playing", { page });
+};
+
+export const getTopRatedMovies = async (page = 1) => {
+  return await get("/movie/top_rated", { page });
 };
 
 export const getMoviesByGenres = async (genres = "", page = 1) => {

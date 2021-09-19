@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import { useQueryParam, NumberParam, withDefault } from "use-query-params";
 
-import { getMoviesByCategory } from "../services/tmdb";
+import { getNowPlayingMovies } from "../services/tmdb";
 import MovieList from "../components/MovieList";
 import PageSelector from "../components/PageSelector";
 
@@ -11,7 +11,7 @@ const NowPlayingPage = () => {
 
   const { data } = useQuery({
     queryKey: ["now_playing", page],
-    queryFn: () => getMoviesByCategory("now_playing", page),
+    queryFn: () => getNowPlayingMovies(page),
   });
 
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import { useQueryParam, NumberParam, withDefault } from "use-query-params";
 
-import { getMoviesByCategory } from "../services/tmdb";
+import { getTopRatedMovies } from "../services/tmdb";
 import MovieList from "../components/MovieList";
 import PageSelector from "../components/PageSelector";
 
@@ -11,7 +11,7 @@ const TopRatedPage = () => {
 
   const { data } = useQuery({
     queryKey: ["top_rated", page],
-    queryFn: () => getMoviesByCategory("top_rated", page),
+    queryFn: () => getTopRatedMovies(page),
   });
 
   return (
