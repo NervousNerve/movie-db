@@ -6,13 +6,11 @@ import {
   StringParam,
   withDefault,
 } from "use-query-params";
-
-import MovieList from "../components/MovieList";
-import PageSelector from "../components/PageSelector";
 import classNames from "classnames";
 
 import { searchMovies } from "../services/tmdb";
-
+import MovieList from "../components/MovieList";
+import PageSelector from "../components/PageSelector";
 import style from "./css/SearchPage.module.css";
 
 const SearchPage = () => {

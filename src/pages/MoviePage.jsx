@@ -1,15 +1,13 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 
 import { imgUrl, getMovieById } from "../services/tmdb";
-
+import { useRecentViews } from "../hooks/useRecentViews";
 import MovieList from "../components/MovieList";
 import ActorCard from "../components/ActorCard";
-import { useRecentViews } from "../hooks/useRecentViews";
-
 import style from "./css/MoviePage.module.css";
-import { Link } from "react-router-dom";
 
 const MAX_ACTORS = 9;
 const MAX_RECOMMENDED = 10;

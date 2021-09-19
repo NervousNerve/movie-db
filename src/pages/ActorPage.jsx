@@ -3,9 +3,7 @@ import { useParams } from "react-router";
 import { useQuery } from "react-query";
 
 import { imgUrl, getPersonById, getMoviesByPersons } from "../services/tmdb";
-
 import MovieList from "../components/MovieList";
-
 import style from "./css/ActorPage.module.css";
 
 const MAX_MOVIES = 10;

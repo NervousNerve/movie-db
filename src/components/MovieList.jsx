@@ -1,7 +1,6 @@
 import React from "react";
 
 import MovieCard from "./MovieCard";
-
 import style from "./css/MovieList.module.css";
 
 const MovieList = ({ movies }) => {

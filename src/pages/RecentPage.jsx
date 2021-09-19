@@ -1,7 +1,7 @@
 import React from "react";
 
-import MovieList from "../components/MovieList";
 import { useRecentViews } from "../hooks/useRecentViews";
+import MovieList from "../components/MovieList";
 
 const RecentPage = () => {
   const { movies } = useRecentViews();

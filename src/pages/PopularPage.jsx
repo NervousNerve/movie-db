@@ -8,10 +8,9 @@ import {
 } from "use-query-params";
 import classNames from "classnames";
 
+import { getTrendingMovies } from "../services/tmdb";
 import MovieList from "../components/MovieList";
 import PageSelector from "../components/PageSelector";
-
-import { getTrendingMovies } from "../services/tmdb";
 
 const TrendingPage = () => {
   const [page, setPage] = useQueryParam("page", withDefault(NumberParam, 1));

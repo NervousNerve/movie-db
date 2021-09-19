@@ -3,11 +3,10 @@ import { useQuery } from "react-query";
 import { useQueryParam, NumberParam, withDefault } from "use-query-params";
 import classNames from "classnames";
 
-import MovieList from "../components/MovieList";
-import PageSelector from "../components/PageSelector";
-
 import { getGenres, getMoviesByGenres } from "../services/tmdb";
 import { CommaNumberArrayParam } from "../util/CommaNumberArrayParam";
+import MovieList from "../components/MovieList";
+import PageSelector from "../components/PageSelector";
 
 const GenresPage = () => {
   const [page, setPage] = useQueryParam("page", withDefault(NumberParam, 1));

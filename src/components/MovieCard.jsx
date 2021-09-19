@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { imgUrl } from "../services/tmdb";
-
 import style from "./css/MovieCard.module.css";
 
 const MovieCard = ({ movie }) => {
