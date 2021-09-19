@@ -29,6 +29,7 @@ const GenresPage = () => {
   });
 
   const handleClickGenre = (id) => {
+    // Add or remove genre from currently selected list
     if (genres.includes(id)) {
       setGenres(genres.filter((val) => val !== id));
     } else {
